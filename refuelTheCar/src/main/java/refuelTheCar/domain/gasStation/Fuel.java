@@ -1,13 +1,26 @@
 package refuelTheCar.domain.gasStation;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import lombok.Data;
 
 @Data
 public class Fuel {
-    private String Id;
-    private double Price;
-    private String Type;
-    private int TypeId;
-    private String Brand;
-    private String Name;
+    @JsonProperty("Id")
+    private String id;
+
+    @JsonProperty("Price")
+    private int price;
+
+    @JsonProperty("Type")
+    private String type;
+
+    @JsonProperty("TypeId")
+    private int typeId;
+
+    @JsonProperty("Brand")
+    private String brand;
+
+    @JsonProperty("Name")
+    private String name;
 }

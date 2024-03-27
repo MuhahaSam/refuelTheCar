@@ -58,6 +58,5 @@ public class Config {
             violations.stream().forEach(x -> System.err.println(x.getMessage()));
             throw new ConfigValidateFailedException();
         }
-
     }
 }

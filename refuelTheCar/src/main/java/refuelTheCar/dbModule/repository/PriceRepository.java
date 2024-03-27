@@ -6,35 +6,35 @@ import com.fasterxml.jackson.core.type.TypeReference;
 
 import refuelTheCar.adapter.HttpAdapter;
 import refuelTheCar.config.Config;
-import refuelTheCar.domain.gasStation.GasStation;
+import refuelTheCar.domain.price.Price;
 import refuelTheCar.exception.GetDataByHttpException;
 
-public class GasStationRepository {
-    private static GasStationRepository INSTANCE;
+public class PriceRepository {
+    private static PriceRepository INSTANCE;
 
     private Config config;
     private HttpAdapter httpAdapter = HttpAdapter.getInstance();
 
-    GasStationRepository(Config config) {
+    PriceRepository(Config config) {
         this.config = config;
     }
 
-    public static GasStationRepository getInstance(Config config) {
+    public static PriceRepository getInstance(Config config) {
         if (INSTANCE == null) {
-            INSTANCE = new GasStationRepository(config);
+            INSTANCE = new PriceRepository(config);
         }
         return INSTANCE;
     }
 
-    public List<GasStation> getAll() throws GetDataByHttpException {
-        String url = String.format("%s/station?apikey=%s", config.getStationUrl(), config.getApiKey());
+    public List<Price> getAll() throws GetDataByHttpException {
+        String url = String.format("%s/price?apikey=%s", config.getStationUrl(), config.getApiKey());
 
         try {
-            return httpAdapter.sendGetRequest(url, new TypeReference<List<GasStation>>() {
+            return httpAdapter.sendGetRequest(url, new TypeReference<List<Price>>() {
             });
         } catch (Exception e) {
             throw new GetDataByHttpException(url);
         }
-    }
 
+    }
 }

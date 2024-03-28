@@ -6,8 +6,8 @@ import com.fasterxml.jackson.core.type.TypeReference;
 
 import refuelTheCar.adapter.HttpAdapter;
 import refuelTheCar.config.Config;
-import refuelTheCar.domain.gasStation.GasStation;
 import refuelTheCar.exception.GetDataByHttpException;
+import refuelTheCar.models.external.station.Station;
 
 public class GasStationRepository {
     private static GasStationRepository INSTANCE;
@@ -26,11 +26,11 @@ public class GasStationRepository {
         return INSTANCE;
     }
 
-    public List<GasStation> getAll() throws GetDataByHttpException {
+    public List<Station> getAll() throws GetDataByHttpException {
         String url = String.format("%s/station?apikey=%s", config.getStationUrl(), config.getApiKey());
 
         try {
-            return httpAdapter.sendGetRequest(url, new TypeReference<List<GasStation>>() {
+            return httpAdapter.sendGetRequest(url, new TypeReference<List<Station>>() {
             });
         } catch (Exception e) {
             throw new GetDataByHttpException(url);

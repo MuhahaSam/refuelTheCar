@@ -1,4 +1,4 @@
-package refuelTheCar.domain.gasStation;
+package refuelTheCar.models.external.station;
 
 import java.util.List;
 import java.util.Map;
@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 @Data
-public class GasStation {
+public class Station {
     @JsonProperty("Id")
     private String id;
 

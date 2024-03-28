@@ -1,4 +1,4 @@
-package refuelTheCar.domain.gasStation;
+package refuelTheCar.models.external.station;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

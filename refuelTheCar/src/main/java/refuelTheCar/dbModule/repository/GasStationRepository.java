@@ -12,16 +12,12 @@ import refuelTheCar.models.external.station.Station;
 public class GasStationRepository {
     private static GasStationRepository INSTANCE;
 
-    private Config config;
+    private Config config = Config.getInstance();
     private HttpAdapter httpAdapter = HttpAdapter.getInstance();
 
-    GasStationRepository(Config config) {
-        this.config = config;
-    }
-
-    public static GasStationRepository getInstance(Config config) {
+    public static GasStationRepository getInstance() {
         if (INSTANCE == null) {
-            INSTANCE = new GasStationRepository(config);
+            INSTANCE = new GasStationRepository();
         }
         return INSTANCE;
     }

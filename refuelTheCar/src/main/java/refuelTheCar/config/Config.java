@@ -31,28 +31,37 @@ public class Config {
     @NotNull(message = "apiKey cannot be null")
     private String apiKey;
 
-    public static Config getInstance() throws ConfigNoneExistException, ConfigValidateFailedException {
+    Config() {
+        try {
+            readConfigFile();
+            validateConfig();
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+            System.exit(0);
+        }
+
+    }
+
+    public static Config getInstance() {
         if (INSTANCE == null) {
-            Config appConfig = readConfigFile();
-            validateConfig(appConfig);
-            INSTANCE = appConfig;
+            INSTANCE = new Config();
         }
 
         return INSTANCE;
     }
 
-    private static Config readConfigFile() throws ConfigNoneExistException {
+    private static void readConfigFile() throws ConfigNoneExistException {
         ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
         try {
-            return mapper.readValue(new File(configFilePath.toString()), Config.class);
+            INSTANCE = mapper.readValue(new File(configFilePath.toString()), Config.class);
         } catch (IOException e) {
             throw new ConfigNoneExistException();
         }
     }
 
-    private static void validateConfig(Config appConfig) throws ConfigValidateFailedException {
+    private static void validateConfig() throws ConfigValidateFailedException {
         Validator validator = Validation.buildDefaultValidatorFactory().getValidator();
-        Set<ConstraintViolation<Config>> violations = validator.validate(appConfig);
+        Set<ConstraintViolation<Config>> violations = validator.validate(INSTANCE);
 
         if (violations.size() > 0) {
             violations.stream().forEach(x -> System.err.println(x.getMessage()));

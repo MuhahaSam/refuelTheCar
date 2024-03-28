@@ -12,16 +12,12 @@ import refuelTheCar.models.external.price.PriceInfo;
 public class PriceRepository {
     private static PriceRepository INSTANCE;
 
-    private Config config;
+    private Config config = Config.getInstance();;
     private HttpAdapter httpAdapter = HttpAdapter.getInstance();
 
-    PriceRepository(Config config) {
-        this.config = config;
-    }
-
-    public static PriceRepository getInstance(Config config) {
+    public static PriceRepository getInstance() {
         if (INSTANCE == null) {
-            INSTANCE = new PriceRepository(config);
+            INSTANCE = new PriceRepository();
         }
         return INSTANCE;
     }

@@ -1,0 +1,37 @@
+# Тестовое задание “Заправить Авто”
+
+## Описание
+
+Необходимо реализовать приложение c использованием языка java для
+получения/обработки/сохранения данных.
+
+## Шаги для запуска
+
+### Шаг 1
+
+необходимо создать конфиг файл application.yaml в диретории refuelTheCar/refuelTheCar/resources/
+
+_пример конфиг файла_
+
+    stationUrl: https://test-station-info.url.com
+    apiKey: fakeApiKey
+
+### Шаг 2
+
+нужно перейти в директорию refuelTheCar/refuelTheCar и выполнить следубщие команды
+
+    mvn clean
+
+и
+
+    mvn package
+
+### Шаг 3
+
+запустить скрипт можно следующей командой
+
+    mvn exec:java
+
+## Сехма базы данных
+
+по [ссылке](https://viewer.diagrams.net/?tags=%7B%7D&highlight=0000ff&edit=_blank&layers=1&nav=1&title=%D0%94%D0%B8%D0%B0%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B0%20%D0%B1%D0%B5%D0%B7%20%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F.drawio#R7Zxdb%2BI4FIZ%2FDZe7InHCx2WhnZ3RtioaVtrZuTPEJB6cOHLMAP316xAnAVwGRpAcpFpCKj6xg%2BPz2Dl%2BT5oOGsebvwROoxceENZxu8Gmgx47rut0B331J7dsC0u%2F7xeGUNBAV6oNU%2FpGypbauqIByQ4qSs6ZpOmhcc6ThMzlgQ0LwdeH1RacHf5qikNiGKZzzEzrvzSQUWEduP3a%2FpnQMCp%2F2ekNiyMxLivrK8kiHPD1ngk9ddBYcC6Lb%2FFmTFg%2BeOW4FO0%2BnThadUyQRF7SYPgdvcTCi8cvaOq99j6zKJ39oc%2FyE7OVvuBXEeKEvmFJeaI7LrflaGRrGjOcqNJowRM51Ue6qjyPKAue8Zav8t5kEs%2BXZWkUcUHfVH3M1CFHGdRhIbWzUfegxjRvqc8pSKbqTMpLdI5ML3hzUPEZZ7LsDWcMpxmd7fqXN4yxCGky4lLyWFdaR1SSaYrneZ214jfviIzLTuqhIUKSzckxdypPqilAeEyk2KoquoGnfa%2Fh9wa6vK5Rcso60T5GvjZijW9Ynbr2sPqinfwbDncNh6vqx25WFyx3XhJ8ScaccaHsCS%2F8Thk7MmFGw0QVGVnkzfIRo2oGPWhzTIMgP%2FMoU0NNk%2FB5V%2B3Rqy1f9ZXnJq6aL9huokSqIVFnGKWcJnI3Ev5IfdTYjLt%2F%2Bh1f9XWsyk5dVp%2B8upBjnqjuY7rzE1FgrEkOx0hwiSWeVdjegoHTM8sEQ5OALgQBNcUBMjhIcEwsCa2T0IMmwTdXhMRc%2BS0ITYMwhAbBM0BYpqkFoXUQHBeahJ5BwsP3qQ0GrwwGUfcwGkQXBwG9phzdt9FgOzO%2Bd9%2FR4MDgQPmciASzL5aH9nkAjwmHdndwHySAB4WOqRDNBE7sqtA%2BC%2FBxYSnKHsNgbxIQOPjgOJhiIt9Tjy0VEFRcKjE3R4UpLbJ3UgkWhaZRqHJocCiYkhLD0qLQPgoeOAqmzCzxkrwuFnnO2CLRPhJ9cCRMmTHlmZzgrcUBQIICx8EUI0myGxhLQ%2Bs0gCuSzsBwOwlCUiYZ1BBGPOQJZk%2B1VY3eKglIoMeurvPMeapH7AeRcquTDXgl%2BeF4qjET22%2B6%2Fa7wX15QztPFx83%2BwcetLhV9zTt40gvalPGVmJNfXLjeU0ksQvLLHJL7vgcFUSEW%2FXnYkdu7x1QIP6lvzHCaTRJdlyTqXxq5VSHe7R8ZMlUfmyVqJi88PHOPBl6UXVMMtnkiSCLAE0WuKQHaTBEMC%2BCpItcU%2FmyqCAgG%2BFyR%2B47gs03tygABA3imyDWlnhwGGzSA4ACeIkJmHGkTh9BYwKeLEDL8bjUfc95AaT7IzOZNBJ2bt3Sr%2Bfye5tMrZ1S5z780lG%2Fu38SQ%2BUSo1XwaWZWLWXW%2Fmg8ylV78ltlbNAQM4HIPMjd1i1z2tzhA4ACu%2BCBzW1d8tTC0DgO84lP%2B2IcL3%2FuXhu8nNmDthO%2Be80HdU06M8%2F7xr%2FTPrumDEPkTTFUFvdbUZ57khjr6r14KUWZ8B%2F6%2Br8%2FW94b%2BERtFD2pSqku5Ah4zz%2FPP178NoOzO77qd38UaTLXa336ZMO%2FpdufXyA29mFP3u%2FPz3nlHyCqeEWFpaJ8G8K2fZypCVgcAggF84%2BcN7ymW7CN0JprclSZEUHX5RMDtAIpJBLUDKNXi%2FSBOLO1zm7eI5IZHz236lz5P31wk55tZVhvJNbJcFxPrfiM539y9SbG0924IGMADOd8M6wsNf2FxaB8H8FDO9%2B4plGtRFiyFjrNBm38iGG8paPM%2FqH8ulm2LBe32%2FlHF%2Bu3MhZBav%2BMaPf0P) можено увидеть схему внутренней базы данных

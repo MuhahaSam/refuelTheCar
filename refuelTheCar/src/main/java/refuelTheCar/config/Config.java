@@ -1,6 +1,5 @@
 package refuelTheCar.config;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -31,20 +30,15 @@ public class Config {
     @NotNull(message = "apiKey cannot be null")
     private String apiKey;
 
-    Config() {
-        try {
-            readConfigFile();
-            validateConfig();
-        } catch (Exception e) {
-            System.err.println(e.getMessage());
-            System.exit(0);
-        }
-
-    }
-
     public static Config getInstance() {
         if (INSTANCE == null) {
-            INSTANCE = new Config();
+            try {
+                readConfigFile();
+                validateConfig();
+            } catch (Exception e) {
+                System.err.println(e.getMessage());
+                System.exit(0);
+            }
         }
 
         return INSTANCE;
@@ -53,7 +47,7 @@ public class Config {
     private static void readConfigFile() throws ConfigNoneExistException {
         ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
         try {
-            INSTANCE = mapper.readValue(new File(configFilePath.toString()), Config.class);
+            INSTANCE = mapper.readValue(configFilePath.toFile(), Config.class);
         } catch (IOException e) {
             throw new ConfigNoneExistException();
         }

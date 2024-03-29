@@ -1,16 +1,24 @@
 package refuelTheCar;
 
-import refuelTheCar.dbModule.repository.GasStationRepository;
+import refuelTheCar.dbModule.FakeDbModule;
+import refuelTheCar.service.AzsFacade;
 
 /**
  * Hello world!
  *
  */
 public class App {
+
     public static void main(String[] args) throws Exception {
 
-        GasStationRepository gasStationRepository = GasStationRepository.getInstance();
-        System.out.println(gasStationRepository.getAll().get(0).getAddress());
-        System.out.println("Hello World!");
+        FakeDbModule fakeDbModule = FakeDbModule.getInstance();
+        AzsFacade azsFacade = AzsFacade.getInstance();
+
+        fakeDbModule.openConnection();
+
+        azsFacade.process();
+
+        fakeDbModule.closeConnection();
+
     }
 }

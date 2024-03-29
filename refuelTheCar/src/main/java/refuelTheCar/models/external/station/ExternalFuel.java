@@ -5,18 +5,18 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 @Data
-public class Fuel {
+public class ExternalFuel {
     @JsonProperty("Id")
     private String id;
 
     @JsonProperty("Price")
-    private int price;
+    private Double price;
 
     @JsonProperty("Type")
     private String type;
 
     @JsonProperty("TypeId")
-    private int typeId;
+    private Integer typeId;
 
     @JsonProperty("Brand")
     private String brand;

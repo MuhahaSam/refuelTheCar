@@ -1,14 +1,13 @@
 package refuelTheCar.models.external.station;
 
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.Data;
 
 @Data
-public class Location {
-    @JsonProperty("Lon")
-    private double lon;
-
-    @JsonProperty("Lat")
-    private double lat;
+public class ExternalColumn {
+    @JsonProperty("Fuels")
+    private List<String> fuels;
 }

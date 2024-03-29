@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 @Data
-public class Station {
+public class ExternalStation {
     @JsonProperty("Id")
     private String id;
 
@@ -25,10 +25,10 @@ public class Station {
     private String brandId;
 
     @JsonProperty("Organization")
-    private Organization organization;
+    private ExternalOrganization organization;
 
     @JsonProperty("Location")
-    private Location location;
+    private ExternalLocation location;
 
     @JsonProperty("TakeOffMode")
     private String takeOffMode;
@@ -40,8 +40,8 @@ public class Station {
     private boolean enable;
 
     @JsonProperty("Fuels")
-    private List<Fuel> fuels;
+    private List<ExternalFuel> fuels;
 
     @JsonProperty("Columns")
-    private Map<String, Column> columns;
+    private Map<String, ExternalColumn> columns;
 }
